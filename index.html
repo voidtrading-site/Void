@@ -5,29 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050505">
 <meta name="description" content="VOID — A structured trading framework built around market structure, liquidity, value, orderflow, and execution.">
-<title>VOID — Trading Framework</title>
+<title>VOID — Education</title>
 <style>
 :root{--bg:#050505;--panel:#0b0b0d;--line:rgba(255,255,255,.11);--soft:rgba(255,255,255,.66);--muted:rgba(255,255,255,.42);--white:#f2f2f2;--max:1160px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.055),transparent 28%),var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .nav{position:fixed;inset:0 0 auto;z-index:50;background:rgba(5,5,5,.78);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
 .nav-inner{width:min(var(--max),calc(100% - 32px));height:62px;margin:auto;display:flex;align-items:center;justify-content:space-between}.brand{font-family:Georgia,"Times New Roman",serif;font-size:17px;letter-spacing:.28em}.nav-links{display:flex;align-items:center;gap:22px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}.nav-links a:hover{color:#fff}.nav-cta{border:1px solid rgba(255,255,255,.25);padding:8px 12px}
-.hero{min-height:auto;padding:112px 20px 58px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:600px;height:600px;border:1px solid rgba(255,255,255,.035);border-radius:50%;left:50%;top:46%;transform:translate(-50%,-50%);box-shadow:0 0 100px rgba(255,255,255,.025)}.hero-content{position:relative;z-index:2;width:min(820px,100%);margin:auto;text-align:center}.hero-logo{width:min(285px,55vw);height:auto;object-fit:contain;margin:0 auto 18px;filter:drop-shadow(0 16px 40px rgba(255,255,255,.06))}.kicker{margin:0 0 8px;color:#c9c9c9;font-size:10px;letter-spacing:.34em;text-transform:uppercase}h1{margin:0;font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(34px,5.2vw,62px);letter-spacing:.09em;line-height:1.08}.hero-sub{max-width:650px;margin:15px auto 0;color:var(--soft);font-size:15px}.hero-actions{margin-top:22px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-width:155px;padding:11px 17px;border:1px solid rgba(255,255,255,.26);font-size:10px;letter-spacing:.18em;text-transform:uppercase;transition:.2s ease}.btn.primary{background:#eee;color:#050505;border-color:#eee}.btn:hover{transform:translateY(-1px)}.btn.secondary:hover{background:rgba(255,255,255,.07)}
+.hero{min-height:auto;padding:92px 20px 54px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:720px;height:720px;border:1px solid rgba(255,255,255,.035);border-radius:50%;left:18%;top:18%;transform:translate(-50%,-50%);box-shadow:0 0 100px rgba(255,255,255,.025)}.hero-content{position:relative;z-index:2;width:min(var(--max),100%);margin:auto}.hero-intro{display:grid;grid-template-columns:150px minmax(0,1fr);gap:32px;align-items:center;max-width:900px;margin:0 auto 38px}.hero-logo{width:150px;height:150px;object-fit:contain;margin:0;filter:drop-shadow(0 16px 40px rgba(255,255,255,.06))}.hero-copy{text-align:left}.kicker{margin:0 0 8px;color:#c9c9c9;font-size:10px;letter-spacing:.34em;text-transform:uppercase}.hero-copy h1{margin:0;font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(28px,4vw,46px);letter-spacing:.07em;line-height:1.08}.hero-sub{max-width:650px;margin:12px 0 0;color:var(--soft);font-size:14px}.hero-actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-width:145px;padding:10px 15px;border:1px solid rgba(255,255,255,.26);font-size:9px;letter-spacing:.18em;text-transform:uppercase;transition:.2s ease}.btn.primary{background:#eee;color:#050505;border-color:#eee}.btn:hover{transform:translateY(-1px)}.btn.secondary:hover{background:rgba(255,255,255,.07)}.start-here{max-width:900px;margin:0 auto}.start-head{text-align:left;margin-bottom:16px}.start-head h2{font-size:clamp(25px,3.2vw,38px)}.start-head p{margin:8px 0 0;color:var(--soft);font-size:13px;max-width:700px}.intro-video{width:100%;background:#08080a;border:1px solid var(--line);overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.35)}.intro-video iframe{display:block;width:100%;height:auto;aspect-ratio:16/9;border:0}
 .statement{border-block:1px solid var(--line);padding:28px 20px;text-align:center}.statement p{margin:0 auto;max-width:800px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(21px,3vw,32px);line-height:1.25;letter-spacing:.02em}
 .section{width:min(var(--max),calc(100% - 32px));margin:auto;padding:58px 0}.section-head{max-width:760px;margin-bottom:28px}.eyebrow{color:var(--muted);font-size:10px;letter-spacing:.34em;text-transform:uppercase;margin-bottom:8px}h2{margin:0;font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(30px,4vw,48px);line-height:1.08;letter-spacing:.04em}.lead{margin:12px 0 0;color:var(--soft);max-width:700px;font-size:14px}
 .framework-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}.module{min-height:0;padding:22px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.022),transparent 58%);transition:.2s ease}.module:hover{background:rgba(255,255,255,.05)}.number{color:rgba(255,255,255,.34);font-size:9px;letter-spacing:.22em}.module h3{margin:10px 0 6px;font-family:Georgia,"Times New Roman",serif;font-size:19px;font-weight:400;letter-spacing:.06em;line-height:1.15}.module p{margin:0;color:var(--soft);font-size:12px;line-height:1.5;max-width:500px}.module-link{display:inline-block;margin-top:12px;color:#ddd;font-size:9px;letter-spacing:.18em;text-transform:uppercase}.module-link:hover{text-decoration:underline;text-underline-offset:4px}
 .quote{padding:58px 20px;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.045),transparent 42%)}.quote p{max-width:760px;margin:0 auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(24px,3.7vw,40px);line-height:1.2}.quote span{display:block;margin-top:14px;color:var(--muted);font-size:9px;letter-spacing:.34em;text-transform:uppercase}
 .footer{padding:44px 20px 25px;border-top:1px solid var(--line)}.footer-inner{width:min(var(--max),100%);margin:auto;display:flex;justify-content:space-between;gap:28px}.footer-brand{font-family:Georgia,"Times New Roman",serif;font-size:21px;letter-spacing:.18em}.footer-copy{color:var(--muted);font-size:11px;max-width:460px}.footer-bottom{width:min(var(--max),100%);margin:28px auto 0;padding-top:14px;border-top:1px solid rgba(255,255,255,.07);color:rgba(255,255,255,.3);font-size:9px;letter-spacing:.18em;text-transform:uppercase;display:flex;justify-content:space-between;gap:15px}
-@media(max-width:700px){.nav-inner{height:58px;width:min(var(--max),calc(100% - 24px))}.brand{font-size:15px}.nav-links{gap:8px;font-size:8px;letter-spacing:.11em}.nav-links a:nth-child(2){display:none}.nav-cta{padding:7px 9px}.hero{padding:88px 16px 40px}.hero:before{width:390px;height:390px}.hero-logo{width:min(205px,54vw);margin-bottom:14px}.kicker{font-size:8px;letter-spacing:.28em}h1{font-size:clamp(27px,8vw,42px);letter-spacing:.055em}.hero-sub{font-size:13px;line-height:1.55;margin-top:11px}.hero-actions{margin-top:18px;gap:8px}.btn{width:100%;min-width:0;padding:11px 14px;font-size:9px}.statement{padding:23px 16px}.statement p{font-size:21px}.section{width:min(var(--max),calc(100% - 24px));padding:42px 0}.section-head{margin-bottom:20px}.eyebrow{font-size:8px}.lead{font-size:13px;line-height:1.55}.framework-grid{grid-template-columns:1fr}.module{padding:18px 18px}.module h3{font-size:18px;margin-top:8px}.module p{font-size:12px}.module-link{margin-top:10px}.quote{padding:45px 18px}.quote p{font-size:25px}.footer{padding:36px 16px 20px}.footer-inner{flex-direction:column;gap:12px}.footer-copy{font-size:11px}.footer-bottom{margin-top:22px;flex-direction:column;gap:7px;font-size:8px}}
-@media(min-width:701px) and (max-width:980px){.hero-logo{width:240px}.section{padding:52px 0}.module{padding:20px}.module h3{font-size:18px}}
+@media(max-width:700px){.nav-inner{height:58px;width:min(var(--max),calc(100% - 24px))}.brand{font-size:15px}.nav-links{gap:8px;font-size:8px;letter-spacing:.11em}.nav-links a:nth-child(2){display:none}.nav-cta{padding:7px 9px}.hero{padding:82px 16px 40px}.hero:before{width:390px;height:390px;left:12%;top:10%}.hero-intro{grid-template-columns:82px minmax(0,1fr);gap:18px;margin-bottom:30px;align-items:start}.hero-logo{width:82px;height:82px}.hero-copy h1{font-size:clamp(24px,7vw,34px);letter-spacing:.045em}.kicker{font-size:8px;letter-spacing:.24em}.hero-sub{font-size:12px;line-height:1.5;margin-top:9px}.hero-actions{margin-top:14px;gap:7px}.btn{min-width:0;padding:9px 12px;font-size:8px}.start-head h2{font-size:26px}.start-head p{font-size:12px;line-height:1.5}.intro-video{border-radius:0}.section{width:min(var(--max),calc(100% - 24px));padding:42px 0}.section-head{margin-bottom:20px}.eyebrow{font-size:8px}.lead{font-size:13px;line-height:1.55}.framework-grid{grid-template-columns:1fr}.module{padding:18px 18px}.module h3{font-size:18px;margin-top:8px}.module p{font-size:12px}.module-link{margin-top:10px}.quote{padding:45px 18px}.quote p{font-size:25px}.footer{padding:36px 16px 20px}.footer-inner{flex-direction:column;gap:12px}.footer-copy{font-size:11px}.footer-bottom{margin-top:22px;flex-direction:column;gap:7px;font-size:8px}}
+@media(min-width:701px) and (max-width:980px){.hero-intro{grid-template-columns:125px minmax(0,1fr);gap:26px}.hero-logo{width:125px;height:125px}.section{padding:52px 0}.module{padding:20px}.module h3{font-size:18px}}
 </style>
 </head>
 <body>
-<header class="nav"><div class="nav-inner"><a class="brand" href="/" aria-label="VOID home">VOID</a><nav class="nav-links"><a href="#framework">Framework</a><a href="#philosophy">Philosophy</a><a class="nav-cta" href="#framework">Enter Education</a></nav></div></header>
+<header class="nav"><div class="nav-inner"><a class="brand" href="/" aria-label="VOID home">VOID</a><nav class="nav-links"><a href="#framework">Framework</a><a class="nav-cta" href="#framework">Enter Education</a></nav></div></header>
 <main>
-<section class="hero"><div class="hero-content"><img class="hero-logo" src="/assets/void-logo.png" alt="VOID logo"><p class="kicker">Trading Framework</p><h1>STRUCTURE. CONTEXT. EXECUTION.</h1><p class="hero-sub">
-  </p><div class="hero-actions"><a class="btn primary" href="#framework">Explore Framework</a><a class="btn secondary" href="#philosophy">The Philosophy</a></div></div></section>
-<section class="statement" id="philosophy"><p>Not a strategy. A system of understanding.</p></section>
-<section class="section"><div class="section-head"><div class="eyebrow">The VOID Framework</div><h2>Learn to read the auction.</h2><p class="lead">The goal is not to memorize setups. It is to build a framework for understanding where price is, why it is moving, where liquidity and value are developing, and how to execute with intent.</p></div>
+<section class="hero">
+<div class="hero-content">
+  <div class="hero-intro">
+    <img class="hero-logo" src="/assets/void-logo.png" alt="VOID logo">
+    <div class="hero-copy">
+      <p class="kicker">VOID Education</p>
+      <h1>Learn the framework.</h1>
+      <p class="hero-sub">A structured education in market structure, liquidity, value, orderflow, and disciplined execution.</p>
+      <div class="hero-actions"><a class="btn primary" href="#framework">Explore Education</a></div>
+    </div>
+  </div>
+  <div class="start-here">
+    <div class="start-head">
+      <div class="eyebrow">Start Here</div>
+      <h2>Overview &amp; Navigation</h2>
+      <p>Watch this short introduction to understand how VOID Education is organized, where to begin, and how to move through the framework.</p>
+    </div>
+    <div class="intro-video" aria-label="VOID Education introduction video">
+      <iframe
+        src="https://player.cloudinary.com/embed/?cloud_name=el58wcnd&amp;public_id=202608241138"
+        width="640"
+        height="360"
+        allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+        allowfullscreen
+        frameborder="0">
+      </iframe>
+    </div>
+  </div>
+</div>
+</section>
+<section class="section"><div class="section-head"><div class="eyebrow">VOID Education</div><h2>Learn to read the auction.</h2><p class="lead">The goal is not to memorize setups. It is to build a framework for understanding where price is, why it is moving, where liquidity and value are developing, and how to execute with intent.</p></div>
 <div class="framework-grid" id="framework">
 <article class="module"><div class="number">01</div><h3>MARKET STRUCTURE</h3><p>Build directional context by understanding how price develops structure.</p><a class="module-link" href="/course/market-structure.html">Enter Module →</a></article>
 <article class="module"><div class="number">02</div><h3>IMBALANCE</h3><p>Study inefficient price delivery and how imbalance can shape future interaction.</p><a class="module-link" href="/course/imbalance.html">Enter Module →</a></article>
@@ -46,6 +73,6 @@
 </div></section>
 <section class="quote"><p>“Clarity comes from structure. Execution comes from preparation.”</p><span>VOID</span></section>
 </main>
-<footer class="footer"><div class="footer-inner"><div class="footer-brand">VOID</div><div class="footer-copy"></div></div><div class="footer-bottom"><span>Discipline · Structure · Growth · Legacy</span><span>© 2026 VOID</span></div></footer>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand">VOID</div><div class="footer-copy">A structured trading education framework focused on market structure, liquidity, value, orderflow, and execution.</div></div><div class="footer-bottom"><span>Discipline · Structure · Growth · Legacy</span><span>© 2026 VOID</span></div></footer>
 </body>
 </html>
