@@ -31,7 +31,20 @@ h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(40px,6vw,68px);lett
   radial-gradient(circle at 50% 50%,rgba(255,255,255,.055),transparent 38%),#09090b;
   display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden
 }
-.video-inner{text-align:center;color:var(--muted)}
+.video-inner{
+    text-align:center;
+    color:var(--muted);
+    width:100%;
+}
+
+.video-inner iframe{
+    display:block;
+    width:100%;
+    max-width:100%;
+    aspect-ratio:16 / 9;
+    height:auto;
+    border:0;
+}
 .play{width:58px;height:58px;border:1px solid rgba(255,255,255,.35);border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;color:#fff;font-size:18px}
 .video-label{font-size:9px;letter-spacing:.28em;text-transform:uppercase}
 .lesson{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(240px,.7fr);gap:34px;margin-top:44px}
