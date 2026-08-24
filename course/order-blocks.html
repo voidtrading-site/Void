@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<title>VOID — Order Blocks</title>
+<style>
+:root{--bg:#050505;--panel:#0b0b0d;--line:rgba(255,255,255,.12);--white:#f2f2f2;--soft:rgba(255,255,255,.65);--muted:rgba(255,255,255,.38);--max:1100px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 50% 0,rgba(255,255,255,.055),transparent 35%),var(--bg);color:var(--white);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}
+.nav{height:64px;border-bottom:1px solid var(--line);background:rgba(5,5,5,.86);backdrop-filter:blur(14px);display:flex;align-items:center;position:sticky;top:0;z-index:10}.nav-inner{width:min(var(--max),calc(100% - 32px));margin:auto;display:flex;align-items:center;justify-content:space-between}.brand{font-family:Georgia,serif;letter-spacing:.28em;font-size:17px}.nav-right{display:flex;gap:20px;align-items:center;color:var(--soft);font-size:10px;letter-spacing:.18em;text-transform:uppercase}.back:hover{color:#fff}
+.module{width:min(var(--max),calc(100% - 32px));margin:auto;padding:58px 0 70px}.eyebrow{font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--muted)}h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(40px,6vw,68px);letter-spacing:.05em;line-height:1.05;margin:10px 0 14px}.intro{max-width:720px;color:var(--soft);font-size:16px;margin:0}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.pill{border:1px solid var(--line);padding:7px 11px;color:var(--muted);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
+.video{margin-top:38px;aspect-ratio:16/9;border:1px solid var(--line);background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.055),transparent 38%),#09090b;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.video-inner{text-align:center;color:var(--muted)}.play{width:58px;height:58px;border:1px solid rgba(255,255,255,.35);border-radius:50%;display:grid;place-items:center;margin:0 auto 12px;color:#fff;font-size:18px}.video-label{font-size:9px;letter-spacing:.28em;text-transform:uppercase}
+.lesson{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(240px,.7fr);gap:34px;margin-top:44px}.card{border-top:1px solid var(--line);padding-top:24px}.card h2{font-family:Georgia,serif;font-weight:400;font-size:29px;margin:0 0 12px}.card p{color:var(--soft);margin:0 0 16px}.side{border:1px solid var(--line);padding:24px;background:rgba(255,255,255,.02);height:max-content}.side-title{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}.side a{display:block;padding:10px 0;border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:var(--soft)}.side a:first-of-type{border-top:0}.side a:hover{color:#fff}.callout{margin-top:26px;border-left:2px solid rgba(255,255,255,.35);padding:15px 18px;background:rgba(255,255,255,.025);color:var(--soft)}
+.nav-course{display:flex;justify-content:space-between;gap:16px;margin-top:58px;border-top:1px solid var(--line);padding-top:22px}.next,.prev{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}.next:hover,.prev:hover{color:#fff}footer{border-top:1px solid var(--line);padding:28px 16px;color:var(--muted);font-size:9px;letter-spacing:.18em;text-transform:uppercase;text-align:center}
+@media(max-width:760px){.nav-right .course-label{display:none}.module{padding:40px 0 50px}.video{margin-top:28px}.lesson{grid-template-columns:1fr;gap:28px;margin-top:32px}.card h2{font-size:25px}.nav-course{margin-top:42px}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">VOID</a>
+    <div class="nav-right">
+      <a class="back" href="/">Home</a>
+      <a class="course-label" href="/">Course</a>
+    </div>
+  </div>
+</header>
+
+<main class="module">
+  <div class="eyebrow">Module 03 / Price Context</div>
+  <h1>Order Blocks</h1>
+  <p class="intro">Frame areas of interest within broader market context and understand how they fit into the auction.</p>
+  <div class="meta">
+    <span class="pill">Module 03</span>
+    <span class="pill">Order Blocks</span>
+    <span class="pill">VOID Framework</span>
+  </div>
+
+  <section class="video" aria-label="Course video placeholder">
+    <div class="video-inner">
+      <div class="play">▶</div>
+      <div class="video-label">Video lesson — ready for your video</div>
+    </div>
+  </section>
+
+  <section class="lesson">
+    <article class="card">
+      <h2>Module Overview</h2>
+      <p>Your Order Blocks lesson will live here. This page is already structured for your future video, written material, examples, diagrams, and supporting explanations.</p>
+      <div class="callout"><strong>VOID:</strong> Course content placeholder. Your actual teaching material can be added here later without rebuilding the page.</div>
+      <h2 style="margin-top:38px">Lesson Content</h2>
+      <p>This area is intentionally open until your curriculum is ready. The layout, navigation, and responsive structure are already in place.</p>
+    </article>
+    <aside class="side">
+      <div class="side-title">Course Modules</div>
+      <a href="/course/market-structure.html">01 · Market Structure</a>
+<a href="/course/imbalance.html">02 · Imbalance</a>
+<a href="/course/order-blocks.html">03 · Order Blocks</a>
+<a href="/course/fibonacci.html">04 · Fibonacci</a>
+<a href="/course/horizontal-levels.html">05 · Horizontal Levels</a>
+<a href="/course/liquidity.html">06 · Liquidity</a>
+<a href="/course/auction-market-theory.html">07 · Auction Market Theory</a>
+<a href="/course/volume-profile.html">08 · Volume Profile</a>
+<a href="/course/market-profile.html">09 · Market Profile</a>
+<a href="/course/vwap.html">10 · VWAP</a>
+<a href="/course/execution.html">11 · Execution</a>
+<a href="/course/developing-value.html">12 · Developing Value</a>
+<a href="/course/orderflow.html">13 · Orderflow</a>
+<a href="/course/market-prep.html">14 · Market Prep</a>
+    </aside>
+  </section>
+
+  <nav class="nav-course">
+    <a class="prev" href="/course/imbalance.html">← Imbalance</a>
+    <a class="next" href="/course/fibonacci.html">Next · Fibonacci →</a>
+  </nav>
+</main>
+<footer>VOID · Structure · Context · Execution</footer>
+</body>
+</html>
