@@ -1,1 +1,499 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="VOID — A structured trading framework built around market structure, liquidity, value, orderflow, and execution.">
+<title>VOID — Trading Framework</title>
+
+<style>
+:root{
+  --bg:#050505;
+  --panel:#0b0b0d;
+  --panel2:#101012;
+  --line:rgba(255,255,255,.13);
+  --soft:rgba(255,255,255,.65);
+  --muted:rgba(255,255,255,.42);
+  --white:#f2f2f2;
+  --silver:#c9c9c9;
+  --max:1180px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255,255,255,.07), transparent 32%),
+    radial-gradient(circle at 15% 55%, rgba(255,255,255,.025), transparent 28%),
+    var(--bg);
+  color:var(--white);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:50;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:rgba(5,5,5,.72);
+  backdrop-filter:blur(18px);
+}
+.nav-inner{
+  width:min(var(--max),calc(100% - 40px));
+  height:72px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  letter-spacing:.32em;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:18px;
+}
+.nav-links{
+  display:flex;
+  gap:30px;
+  align-items:center;
+  font-size:12px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--soft);
+}
+.nav-links a:hover{color:#fff}
+.nav-cta{
+  border:1px solid rgba(255,255,255,.28);
+  padding:10px 15px;
+  transition:.25s ease;
+}
+.nav-cta:hover{background:#fff;color:#050505}
+
+.hero{
+  min-height:100vh;
+  padding:120px 20px 80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  width:720px;height:720px;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:50%;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 120px rgba(255,255,255,.035);
+}
+.hero-content{
+  width:min(900px,100%);
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.hero-logo{
+  width:min(470px,72vw);
+  margin:0 auto 28px;
+  filter:drop-shadow(0 20px 60px rgba(255,255,255,.08));
+}
+.kicker{
+  margin:0 0 12px;
+  color:var(--silver);
+  font-size:12px;
+  letter-spacing:.42em;
+  text-transform:uppercase;
+}
+h1{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(42px,7vw,82px);
+  font-weight:400;
+  letter-spacing:.12em;
+  line-height:1.05;
+}
+.hero-sub{
+  max-width:680px;
+  margin:24px auto 0;
+  color:var(--soft);
+  font-size:clamp(16px,2vw,20px);
+}
+.hero-actions{
+  margin-top:34px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:170px;
+  padding:14px 22px;
+  border:1px solid rgba(255,255,255,.3);
+  font-size:12px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  transition:.25s ease;
+}
+.btn.primary{background:#eee;color:#050505;border-color:#eee}
+.btn.primary:hover{background:#fff;transform:translateY(-2px)}
+.btn.secondary:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+
+.section{
+  width:min(var(--max),calc(100% - 40px));
+  margin:auto;
+  padding:110px 0;
+}
+.section-head{
+  max-width:760px;
+  margin-bottom:44px;
+}
+.eyebrow{
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:.38em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+h2{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:400;
+  font-size:clamp(34px,5vw,58px);
+  line-height:1.1;
+  letter-spacing:.05em;
+}
+.lead{
+  margin:18px 0 0;
+  color:var(--soft);
+  max-width:720px;
+  font-size:17px;
+}
+
+.statement{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:48px 0;
+  text-align:center;
+}
+.statement p{
+  margin:0 auto;
+  max-width:920px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(24px,4vw,42px);
+  line-height:1.35;
+  letter-spacing:.03em;
+}
+
+.framework-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+}
+.module{
+  min-height:190px;
+  padding:30px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  position:relative;
+  transition:.3s ease;
+  background:linear-gradient(135deg,rgba(255,255,255,.025),transparent 55%);
+}
+.module:hover{
+  background:rgba(255,255,255,.055);
+  transform:translateY(-2px);
+}
+.number{
+  color:rgba(255,255,255,.35);
+  font-size:11px;
+  letter-spacing:.25em;
+}
+.module h3{
+  margin:20px 0 10px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:24px;
+  font-weight:400;
+  letter-spacing:.08em;
+}
+.module p{
+  margin:0;
+  color:var(--soft);
+  font-size:14px;
+  max-width:480px;
+}
+.module-link{
+  display:inline-block;
+  margin-top:20px;
+  color:#ddd;
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+
+.quote{
+  padding:100px 20px;
+  text-align:center;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 50%,rgba(255,255,255,.06),transparent 42%);
+}
+.quote p{
+  max-width:850px;
+  margin:0 auto;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(28px,4.5vw,52px);
+  line-height:1.25;
+}
+.quote span{
+  display:block;
+  margin-top:22px;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+}
+
+.footer{
+  padding:70px 20px 35px;
+  border-top:1px solid var(--line);
+}
+.footer-inner{
+  width:min(var(--max),100%);
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+}
+.footer-brand{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:24px;
+  letter-spacing:.2em;
+}
+.footer-copy{
+  color:var(--muted);
+  font-size:12px;
+  max-width:520px;
+}
+.footer-bottom{
+  width:min(var(--max),100%);
+  margin:50px auto 0;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.3);
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+@media(max-width:760px){
+  .nav-inner{height:64px}
+  .nav-links{gap:12px;font-size:9px;letter-spacing:.12em}
+  .nav-links a:nth-child(2){display:none}
+  .nav-cta{padding:8px 10px}
+  .hero{padding-top:100px}
+  .hero-logo{width:min(390px,86vw)}
+  .section{padding:80px 0}
+  .framework-grid{grid-template-columns:1fr}
+  .module{min-height:0;padding:26px}
+  .footer-inner,.footer-bottom{flex-direction:column}
+  .footer-bottom{gap:10px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">VOID</a>
+
+    <nav class="nav-links">
+      <a href="#framework">Framework</a>
+      <a href="#philosophy">Philosophy</a>
+      <a class="nav-cta" href="#framework">Enter Course</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-content">
+    <img class="hero-logo" src="assets/void-logo.png" alt="VOID logo">
+
+    <p class="kicker">Trading Framework</p>
+
+    <h1>STRUCTURE. CONTEXT. EXECUTION.</h1>
+
+    <p class="hero-sub">
+      A structured approach to reading markets through price, liquidity,
+      value, orderflow, and disciplined execution.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="#framework">Explore Framework</a>
+      <a class="btn secondary" href="#philosophy">The Philosophy</a>
+    </div>
+  </div>
+</section>
+
+<section class="statement" id="philosophy">
+  <p>
+    Not a strategy. A system of understanding.
+  </p>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div class="eyebrow">The VOID Framework</div>
+    <h2>Learn to read the auction.</h2>
+    <p class="lead">
+      The goal is not to memorize setups. It is to build a framework for
+      understanding where price is, why it is moving, where liquidity and
+      value are developing, and how to execute with intent.
+    </p>
+  </div>
+
+  <div class="framework-grid" id="framework">
+
+    <article class="module">
+      <div class="number">01</div>
+      <h3>MARKET STRUCTURE</h3>
+      <p>Build directional context by understanding how price develops structure.</p>
+      <a class="module-link" href="course/market-structure.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">02</div>
+      <h3>IMBALANCE</h3>
+      <p>Study inefficient price delivery and how imbalance can shape future interaction.</p>
+      <a class="module-link" href="course/imbalance.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">03</div>
+      <h3>ORDER BLOCKS</h3>
+      <p>Learn how to frame institutional areas of interest within broader market context.</p>
+      <a class="module-link" href="course/order-blocks.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">04</div>
+      <h3>FIBONACCI</h3>
+      <p>Use measured relationships as contextual tools rather than isolated signals.</p>
+      <a class="module-link" href="course/fibonacci.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">05</div>
+      <h3>HORIZONTAL LEVELS</h3>
+      <p>Identify meaningful price levels and understand their role within the auction.</p>
+      <a class="module-link" href="course/horizontal-levels.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">06</div>
+      <h3>LIQUIDITY</h3>
+      <p>Understand where orders may concentrate and how price interacts with liquidity.</p>
+      <a class="module-link" href="course/liquidity.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">07</div>
+      <h3>AUCTION MARKET THEORY</h3>
+      <p>Understand markets as continuous auctions searching for acceptance and rejection.</p>
+      <a class="module-link" href="course/auction-market-theory.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">08</div>
+      <h3>VOLUME PROFILE</h3>
+      <p>Study volume distribution to understand where participation and value are developing.</p>
+      <a class="module-link" href="course/volume-profile.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">09</div>
+      <h3>MARKET PROFILE</h3>
+      <p>Read the auction through time, distribution, balance, and developing structure.</p>
+      <a class="module-link" href="course/market-profile.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">10</div>
+      <h3>VWAP</h3>
+      <p>Use volume-weighted price as a contextual reference for value and execution.</p>
+      <a class="module-link" href="course/vwap.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">11</div>
+      <h3>EXECUTION</h3>
+      <p>Translate analysis into deliberate entries, risk decisions, and trade management.</p>
+      <a class="module-link" href="course/execution.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">12</div>
+      <h3>DEVELOPING VALUE</h3>
+      <p>Track how value evolves throughout the session instead of treating it as static.</p>
+      <a class="module-link" href="course/developing-value.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">13</div>
+      <h3>ORDERFLOW</h3>
+      <p>Read participation and aggression to add another layer of market context.</p>
+      <a class="module-link" href="course/orderflow.html">Enter Module →</a>
+    </article>
+
+    <article class="module">
+      <div class="number">14</div>
+      <h3>MARKET PREP</h3>
+      <p>Bring the framework together through a repeatable process before the session begins.</p>
+      <a class="module-link" href="course/market-prep.html">Enter Module →</a>
+    </article>
+
+  </div>
+</section>
+
+<section class="quote">
+  <p>
+    “Clarity comes from structure. Execution comes from preparation.”
+  </p>
+  <span>VOID</span>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">VOID</div>
+    <div class="footer-copy">
+      A structured trading education framework focused on market structure,
+      liquidity, value, orderflow, and execution.
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>Discipline · Structure · Growth · Legacy</span>
+    <span>© 2026 VOID</span>
+  </div>
+</footer>
+
+</body>
+</html>
